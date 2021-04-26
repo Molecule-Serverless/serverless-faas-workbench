@@ -9,7 +9,7 @@ def generate(length):
     return ''.join(random.choice(letters) for i in range(length))
 
 
-def lambda_handler(event, context):
+def handler(event):
     length_of_message = event['length_of_message']
     num_of_iterations = event['num_of_iterations']
 
@@ -31,3 +31,21 @@ def lambda_handler(event, context):
 
     latency = time() - start
     return latency
+
+def invokeHandler():
+    startTime = int(round(time() * 1000))
+    ret = handler({'length_of_message': 256, 'num_of_iterations':10})
+    retTime = int(round(time() * 1000))
+
+    output = {'results': ret,
+        'startTime': startTime,
+        'retTime' : retTime,
+        'invokeTime': startTime
+        }
+    logf = open("log.txt", "w")
+    logf.write(str(output))
+
+    print(output)
+
+if __name__ == "__main__":
+    invokeHandler()
