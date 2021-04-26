@@ -1,0 +1,12 @@
+# FROM val01:5000/python-base-image:dev-base
+FROM ddnirvana/python-base-image:dev-base-3.6
+RUN mkdir /env && mkdir /code
+COPY daemon-base.py /env
+COPY src/ /code
+COPY spin  /
+
+# Prepare deps here
+RUN pip install chameleon
+RUN pip install six
+RUN pip install boto3
+RUN pip install tensorflow
