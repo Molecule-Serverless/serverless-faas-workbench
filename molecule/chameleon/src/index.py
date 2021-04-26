@@ -52,7 +52,7 @@ def invokeHandler():
     logf = open("log.txt", "w")
     logf.write(str(output))
 
-    #print(output)
+    print(output)
 
 if __name__ == "__main__":
     invokeHandler()

@@ -11,8 +11,11 @@ import importlib.util
 import sys
 import base64
 
+# pkgs to cache apps's usage
 import six
 from chameleon import PageTemplate
+import cv2
+from numpy import matrix, linalg, random
 
 import tornado
 import tornado.ioloop

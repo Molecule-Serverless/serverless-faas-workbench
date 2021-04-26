@@ -7,9 +7,11 @@ import uuid
 import socket
 import array
 
+# pkgs to cache apps's usage
 import importlib.util
 import sys
 import base64
+import cv2
 
 
 import tornado
