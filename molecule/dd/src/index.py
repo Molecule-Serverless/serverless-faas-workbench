@@ -25,18 +25,22 @@ def handler(event):
     bs = 'bs='+event['bs']
     count = 'count='+event['count']
 
-    out_fd = open(tmp + 'io_write_logs', 'w')
+    #out_fd = open(tmp + 'io_write_logs', 'w')
     #dd = subprocess.Popen(['dd', 'if=/dev/zero', 'of=/tmp/out', bs, count], stderr=out_fd)
-    dd = subprocess.Popen(['dd', 'if=/dev/zero', 'of=/dev/zero', bs, count], stderr=out_fd)
+    #dd = subprocess.Popen(['dd', 'if=/dev/zero', 'of=/dev/zero', bs, count], stderr=out_fd)
+    dd = subprocess.Popen(['dd', 'if=/dev/zero', 'of=/dev/zero', bs, count])
     dd.communicate()
 
     subprocess.check_output(['ls', '-alh', tmp])
 
-    with open(tmp + 'io_write_logs') as logs:
-        result = str(logs.readlines()[2]).replace('\n', '')
-        return result
+    #with open(tmp + 'io_write_logs') as logs:
+    #    result = str(logs.readlines()[2]).replace('\n', '')
+    #    return result
+    return ''
 
 def invokeHandler():
+    ret = handler({'bs': '4M' , 'count':'100'})
+    ret = handler({'bs': '4M' , 'count':'100'})
     startTime = int(round(time() * 1000))
     ret = handler({'bs': '4M' , 'count':'100'})
     retTime = int(round(time() * 1000))

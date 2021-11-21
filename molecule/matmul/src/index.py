@@ -1,5 +1,6 @@
 import numpy as np
 from time import time
+import datetime
 
 
 def matmul(n):
@@ -19,9 +20,9 @@ def handler(event):
     return result
 
 def invokeHandler():
-    startTime = int(round(time() * 1000))
+    startTime = int(round(datetime.datetime.now().timestamp() * 1e6))
     ret = handler({'n': 100})
-    retTime = int(round(time() * 1000))
+    retTime =   int(round(datetime.datetime.now().timestamp() * 1e6))
 
     output = {'results': ret,
         'startTime': startTime,

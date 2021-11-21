@@ -36,6 +36,8 @@ def handler(event):
     return result
 
 def invokeHandler():
+    ret = handler({'n': 1000})
+    ret = handler({'n': 1000})
     startTime = int(round(time() * 1000))
     ret = handler({'n': 1000})
     retTime = int(round(time() * 1000))
