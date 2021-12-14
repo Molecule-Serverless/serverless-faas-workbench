@@ -1,0 +1,8 @@
+FROM ddnirvana/python-base-image:dev-base-3.6_arm64
+RUN mkdir /env && mkdir /code
+COPY daemon-base.py /env
+COPY src/ /code
+COPY spin  /
+
+# Prepare deps here
+RUN pip install numpy
